@@ -9,11 +9,10 @@ let start = function(route, handle){
 		let pathname = url.parse(request.url).pathname
 		console.log("Request for " + pathname + " has been received.")
 		
-		// Passing the pathname as a parameter to the route function
-		route(handle, pathname);
+		var content = route(handle, pathname);
 
 		response.writeHead(200, {"Content-type": "text/plain"});
-		response.write("Hello World");
+		response.write(content);
 		response.end();
 	}
 	
