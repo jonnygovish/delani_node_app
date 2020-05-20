@@ -14,9 +14,11 @@ let start = function(route, handle){
 
 	}
 	
-	http.createServer(onRequest).listen(8000);
+	let PORT = process.env.PORT || 8000;
+
+	http.createServer(onRequest).listen(PORT);
 	
-	console.log("Server has started.")
+	console.log(`Server has started on Port: ${PORT}`);
 }
 
 exports.start = start;
